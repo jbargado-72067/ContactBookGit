@@ -1,11 +1,23 @@
-# ContactBookGit
-This is a starter kit for the first lab of the Software Engineering Course.
-Fork this project to make your own version of it.
+# Contact book application
+This program emulates the basic functionalities of a contact book. The following is a comprehensive list of all the currently-implemented features, along with the (String) code necessary to execute each one:
 
-You will notice some things need to be updated in this code. It was originally made with Java 8 and JUnit 4. The plan is for you to still use JUnit 4, but you can and should use a more recent version, like Java 21. You may also note a few other redundant things (e.g. imports). Fix whatever you need to.
+| Feature | Code | Description |
+| :--- | :---: | :--- |
+| Add Contact | `AC` | Adds a new contact to the book |
+| Remove Contact | `RC` | Deletes a contact entry |
+| List Contacts | `LC` | Displays all contacts in order of insertion |
+| Update Phone | `SP` | Updates an existing contact's phone number |
+| Update Email | `SE` | Updates an existing contact's email address |
+| Search by Phone | `GN` | Finds a contact name given a phone number |
+| Check Duplicates | `EP` | Checks if multiple contacts share the same phone number |
 
-Group members:
+# How to run locally
 
+1. `git clone https://github.com/jbargado-72067/ContactBookGit.git`
+2. Open in IntelliJ: *File* -> *Open...* -> Select ContactBookGit folder
+3. Run `Main.java` in `/src`
+
+# Group members
 - André Alves (70798)
 - Diogo Carvalho (69902)
 - João Bargado (72067)

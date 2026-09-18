@@ -163,7 +163,7 @@ public class Main {
 
     private static void checkForRepeatedNumber(ContactBook cBook){
         if (cBook.hasRepeatedPhoneNumber()) {
-            System.out.println(Message.NOT_ALL_DIFFERENT.getMsg());
-        }else System.out.println(Message.ALL_DIFFERENT.getMsg());
+            System.out.println(Message.NOT_ALL_DIFFERENT);
+        }else System.out.println(Message.ALL_DIFFERENT);
     }
 }

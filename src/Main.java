@@ -45,6 +45,9 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case FIND_FROM_PHONE:
+                    findFromPhone(in, cBook);
+                    break;
                 default:
                     System.out.println(Message.COMMAND_ERROR.getMsg());
             }
@@ -138,5 +141,26 @@ public class Main {
             }
         }
         else System.out.println(Message.BOOK_EMPTY.getMsg());
+    }
+
+    private static void findFromPhone(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt();
+        in.nextLine();
+
+        if (cBook.getNumberOfContacts() == 0) {
+            System.out.println(Message.BOOK_EMPTY);
+            return;
+        }
+
+        cBook.initializeIterator();
+        while (cBook.hasNext()) {
+            Contact c = cBook.next();
+            if (c.getPhone() == phone) {
+                System.out.println(c.getName());
+                return;
+            }
+        }
+
+        System.out.println(Message.PHONE_NOT_EXIST);
     }
 }

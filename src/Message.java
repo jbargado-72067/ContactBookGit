@@ -10,6 +10,8 @@ public enum Message {
     BOOK_EMPTY("contactBook.Contact book empty."),
     QUIT_MSG("Goodbye!"),
     COMMAND_ERROR("Unknown command."),
+    ALL_DIFFERENT("All contacts have different phone numbers."),
+    NOT_ALL_DIFFERENT("There are contacts that share phone numbers."),
     PHONE_NOT_EXIST("Phone number does not exist.");
 
     private final String msg;

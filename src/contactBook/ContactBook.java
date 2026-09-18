@@ -93,4 +93,14 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasRepeatedPhoneNumber(){
+        if (counter <= 1) return true;
+        for(int i = 0; i< contacts.length - 2; i ++){
+            for(int j = i + 1; j < contacts.length - 1; j ++){
+                if (contacts[j].getPhone() == contacts[i].getPhone()) return true;
+            }
+        }
+        return false;
+    }
+
 }

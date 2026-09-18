@@ -14,6 +14,8 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
+    public static final String FIND_FROM_PHONE = "GN";
+    public static final String ANY_REPEAT_PHONES = "RP";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

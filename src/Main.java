@@ -1,5 +1,6 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
+import contactBook.ContactBookInterface;
 
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        ContactBook cBook = new ContactBook();
+        ContactBookInterface cBook = new ContactBook();
         String comm = getCommand(in);
 
         while (!comm.equals(QUIT)){
@@ -69,7 +70,7 @@ public class Main {
         return input;
     }
 
-    private static void addContact(Scanner in, ContactBook cBook) {
+    private static void addContact(Scanner in, ContactBookInterface cBook) {
         String name, email;
         int phone;
 
@@ -83,7 +84,7 @@ public class Main {
         else System.out.println(Message.CONTACT_EXISTS.getMsg());
     }
 
-    private static void deleteContact(Scanner in, ContactBook cBook) {
+    private static void deleteContact(Scanner in, ContactBookInterface cBook) {
         String name;
         name = in.nextLine();
         if (cBook.hasContact(name)) {
@@ -93,7 +94,7 @@ public class Main {
         else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
-    private static void getPhone(Scanner in, ContactBook cBook) {
+    private static void getPhone(Scanner in, ContactBookInterface cBook) {
         String name;
         name = in.nextLine();
         if (cBook.hasContact(name)) {
@@ -102,7 +103,7 @@ public class Main {
         else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
-    private static void getEmail(Scanner in, ContactBook cBook) {
+    private static void getEmail(Scanner in, ContactBookInterface cBook) {
         String name;
         name = in.nextLine();
         if (cBook.hasContact(name)) {
@@ -111,7 +112,7 @@ public class Main {
         else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
-    private static void setPhone(Scanner in, ContactBook cBook) {
+    private static void setPhone(Scanner in, ContactBookInterface cBook) {
         String name;
         int phone;
         name = in.nextLine();
@@ -123,7 +124,7 @@ public class Main {
         else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
-    private static void setEmail(Scanner in, ContactBook cBook) {
+    private static void setEmail(Scanner in, ContactBookInterface cBook) {
         String name;
         String email;
         name = in.nextLine();
@@ -135,7 +136,7 @@ public class Main {
         else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
-    private static void listAllContacts(ContactBook cBook) {
+    private static void listAllContacts(ContactBookInterface cBook) {
         if (cBook.getNumberOfContacts() != 0) {
             cBook.initializeIterator();
             while( cBook.hasNext() ) {
@@ -146,7 +147,7 @@ public class Main {
         else System.out.println(Message.BOOK_EMPTY.getMsg());
     }
 
-    private static void findFromPhone(Scanner in, ContactBook cBook) {
+    private static void findFromPhone(Scanner in, ContactBookInterface cBook) {
 
         int phoneNumber = in.nextInt();
         in.nextLine();
@@ -161,7 +162,7 @@ public class Main {
 
     }
 
-    private static void checkForRepeatedNumber(ContactBook cBook){
+    private static void checkForRepeatedNumber(ContactBookInterface cBook){
         if (cBook.hasRepeatedPhoneNumber()) {
             System.out.println(Message.NOT_ALL_DIFFERENT);
         }else System.out.println(Message.ALL_DIFFERENT);

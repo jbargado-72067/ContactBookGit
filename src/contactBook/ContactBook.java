@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook implements ContactBookInterface{
     static final int DEFAULT_SIZE = 100;
 
@@ -74,7 +72,7 @@ public class ContactBook implements ContactBookInterface{
     }
 
     private void resize() {
-        Contact tmp[] = new Contact[2*contacts.length];
+        Contact [] tmp = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;

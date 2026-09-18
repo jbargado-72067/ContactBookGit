@@ -15,7 +15,7 @@ public class Main {
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
     public static final String FIND_FROM_PHONE = "GN";
-    public static final String ANY_REPEAT_PHONES = "RP";
+    public static final String ANY_REPEAT_PHONES = "EP";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -47,6 +47,9 @@ public class Main {
                     break;
                 case FIND_FROM_PHONE:
                     findFromPhone(in, cBook);
+                    break;
+                case ANY_REPEAT_PHONES:
+                    checkForRepeatedNumber(cBook);
                     break;
                 default:
                     System.out.println(Message.COMMAND_ERROR.getMsg());
@@ -162,5 +165,11 @@ public class Main {
         }
 
         System.out.println(Message.PHONE_NOT_EXIST);
+    }
+
+    private static void checkForRepeatedNumber(ContactBook cBook){
+        if (cBook.hasRepeatedPhoneNumber()) {
+            System.out.println(Message.NOT_ALL_DIFFERENT.getMsg());
+        }else System.out.println(Message.ALL_DIFFERENT.getMsg());
     }
 }

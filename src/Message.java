@@ -9,7 +9,8 @@ public enum Message {
     CONTACT_UPDATED("contactBook.Contact updated."),
     BOOK_EMPTY("contactBook.Contact book empty."),
     QUIT_MSG("Goodbye!"),
-    COMMAND_ERROR("Unknown command.");
+    COMMAND_ERROR("Unknown command."),
+    PHONE_NOT_EXIST("Phone number does not exist.");
 
     private final String msg;
 

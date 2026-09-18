@@ -93,6 +93,16 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public String findFromPhone(int number) {
+        if (counter == 0) return "";
+
+        for (int i = 0; i < counter; i++) {
+            if (contacts[i].getPhone() == number) return contacts[i].getName();
+        }
+
+        return "";
+    }
+
     public boolean hasRepeatedPhoneNumber(){
         if (counter <= 1) return true;
         for(int i = 0; i< contacts.length - 2; i ++){

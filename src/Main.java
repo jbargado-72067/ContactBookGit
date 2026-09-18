@@ -147,24 +147,18 @@ public class Main {
     }
 
     private static void findFromPhone(Scanner in, ContactBook cBook) {
-        int phone = in.nextInt();
+
+        int phoneNumber = in.nextInt();
         in.nextLine();
 
-        if (cBook.getNumberOfContacts() == 0) {
-            System.out.println(Message.BOOK_EMPTY);
-            return;
+        String name = cBook.findFromPhone(phoneNumber);
+
+        if (!name.isEmpty()) {
+            System.out.println(name);
+        } else {
+            System.out.println(Message.PHONE_NOT_EXIST);
         }
 
-        cBook.initializeIterator();
-        while (cBook.hasNext()) {
-            Contact c = cBook.next();
-            if (c.getPhone() == phone) {
-                System.out.println(c.getName());
-                return;
-            }
-        }
-
-        System.out.println(Message.PHONE_NOT_EXIST);
     }
 
     private static void checkForRepeatedNumber(ContactBook cBook){

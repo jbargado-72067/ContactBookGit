@@ -15,16 +15,6 @@ public class Main {
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
 
-    //Constantes que definem as mensagens para o utilizador
-    public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
-    public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final String CONTACT_ADDED = "contactBook.Contact added.";
-    public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
-    public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
-    public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
-    public static final String QUIT_MSG = "Goodbye!";
-    public static final String COMMAND_ERROR = "Unknown command.";
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         ContactBook cBook = new ContactBook();
@@ -54,12 +44,12 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 default:
-                    System.out.println(COMMAND_ERROR);
+                    System.out.println(Message.COMMAND_ERROR.getMsg());
             }
             System.out.println();
             comm = getCommand(in);
         }
-        System.out.println(QUIT_MSG);
+        System.out.println(Message.QUIT_MSG.getMsg());
         System.out.println();
         in.close();
     }
@@ -80,9 +70,9 @@ public class Main {
         email = in.nextLine();
         if (!cBook.hasContact(name)) {
             cBook.addContact(name, phone, email);
-            System.out.println(CONTACT_ADDED);
+            System.out.println(Message.CONTACT_ADDED.getMsg());
         }
-        else System.out.println(CONTACT_EXISTS);
+        else System.out.println(Message.CONTACT_EXISTS.getMsg());
     }
 
     private static void deleteContact(Scanner in, ContactBook cBook) {
@@ -90,9 +80,9 @@ public class Main {
         name = in.nextLine();
         if (cBook.hasContact(name)) {
             cBook.deleteContact(name);
-            System.out.println(CONTACT_REMOVED);
+            System.out.println(Message.CONTACT_REMOVED.getMsg());
         }
-        else System.out.println(NAME_NOT_EXIST);
+        else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
     private static void getPhone(Scanner in, ContactBook cBook) {
@@ -101,7 +91,7 @@ public class Main {
         if (cBook.hasContact(name)) {
             System.out.println(cBook.getPhone(name));
         }
-        else System.out.println(NAME_NOT_EXIST);
+        else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
     private static void getEmail(Scanner in, ContactBook cBook) {
@@ -110,7 +100,7 @@ public class Main {
         if (cBook.hasContact(name)) {
             System.out.println(cBook.getEmail(name));
         }
-        else System.out.println(NAME_NOT_EXIST);
+        else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
     private static void setPhone(Scanner in, ContactBook cBook) {
@@ -120,9 +110,9 @@ public class Main {
         phone = in.nextInt(); in.nextLine();
         if (cBook.hasContact(name)) {
             cBook.setPhone(name,phone);
-            System.out.println(CONTACT_UPDATED);
+            System.out.println(Message.CONTACT_UPDATED.getMsg());
         }
-        else System.out.println(NAME_NOT_EXIST);
+        else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
     private static void setEmail(Scanner in, ContactBook cBook) {
@@ -132,9 +122,9 @@ public class Main {
         email = in.nextLine();
         if (cBook.hasContact(name)) {
             cBook.setEmail(name,email);
-            System.out.println(CONTACT_UPDATED);
+            System.out.println(Message.CONTACT_UPDATED.getMsg());
         }
-        else System.out.println(NAME_NOT_EXIST);
+        else System.out.println(Message.NAME_NOT_EXIST.getMsg());
     }
 
     private static void listAllContacts(ContactBook cBook) {
@@ -145,6 +135,6 @@ public class Main {
                 System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
             }
         }
-        else System.out.println(BOOK_EMPTY);
+        else System.out.println(Message.BOOK_EMPTY.getMsg());
     }
 }

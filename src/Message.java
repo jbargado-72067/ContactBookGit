@@ -1,3 +1,6 @@
+/**
+ * enum class for organization to keep all the output messages
+ */
 public enum Message {
     CONTACT_EXISTS("contactBook.Contact already exists."),
     NAME_NOT_EXIST("contactBook.Contact does not exist."),

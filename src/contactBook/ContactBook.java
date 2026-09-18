@@ -1,8 +1,6 @@
 package contactBook;
 
-import contactBook.Contact;
-
-public class ContactBook {
+public class ContactBook implements ContactBookInterface{
     static final int DEFAULT_SIZE = 100;
 
     private int counter;
@@ -74,7 +72,7 @@ public class ContactBook {
     }
 
     private void resize() {
-        Contact tmp[] = new Contact[2*contacts.length];
+        Contact [] tmp = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;
@@ -105,7 +103,6 @@ public class ContactBook {
 
     public boolean hasRepeatedPhoneNumber(){
         if (counter <= 1) return false;
-
         for(int i = 0; i < counter - 2; i++){
             for(int j = i + 1; j < counter; j++){
                 if (contacts[j].getPhone() == contacts[i].getPhone()) return true;
